@@ -1,0 +1,19 @@
+button {
+  border-radius: 35%;
+  -webkit-box-shadow: 6px 6px 0px #050405;
+  -moz-box-shadow: 6px 6px 0px #050405;
+  box-shadow: 6px 6px 0px #050405;
+  font-family: Arial;
+  color: #222;
+  font-size: 20px;
+  background: #d93434;
+  padding: 10px 20px 10px 20px;
+  text-decoration: none; }
+  button:hover {
+    background: #f79191;
+    text-decoration: none;
+    -webkit-box-shadow: 2px 2px 0px #050405;
+    -moz-box-shadow: 2px 2px 0px #050405;
+    box-shadow: 2px 2px 0px #050405; }
+
+/*# sourceMappingURL=syle.css.map */

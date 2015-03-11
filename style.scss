@@ -1,0 +1,105 @@
+html
+{
+    background: darkgreen;
+    
+    
+}
+.hidden
+{
+    display: none;
+    
+}
+
+
+#main {
+  border-radius: 50%;
+  -webkit-box-shadow: 6px 6px 0px #050405;
+  -moz-box-shadow: 6px 6px 0px #050405;
+  box-shadow: 6px 6px 0px #050405;
+  -webkit-box-sizing: border-box; 
+  -moz-box-sizing: border-box;    
+  box-sizing: border-box;
+  background: #d22;
+  border: 85px double #811;
+  width: 200px;
+  height: 200px;
+  text-decoration: none;
+  position: absolute;
+  margin: 100px;
+  
+    &:hover
+    {
+        
+        text-decoration: none;
+        -webkit-box-shadow: 2px 2px 0px #050405;
+        -moz-box-shadow: 2px 2px 0px #050405;
+        box-shadow: 2px 2px 0px #050405;
+        background: #811;
+        border: 85px double #d22;
+    }
+}
+
+
+
+
+    
+
+.papa, .gran, .mama, .baby, .bro, .sis, .cus
+ {
+  border-radius: 50%;
+  -webkit-box-shadow: 6px 6px 0px #050405;
+  -moz-box-shadow: 6px 6px 0px #050405;
+  box-shadow: 6px 6px 0px #050405;
+  -webkit-box-sizing: border-box; 
+  -moz-box-sizing: border-box;    
+  box-sizing: border-box;
+  font-family: Arial;
+  color: #222;
+  font-size: 20px;
+  background: #45A;
+  width: 100px;
+  height: 100px;
+  text-decoration: none;
+  display: inline-block;
+  //margin-left: 100px;
+  //clear: both;
+
+  
+    &:hover
+    {
+        background: #A73434;
+        text-decoration: none;
+        -webkit-box-shadow: 2px 2px 0px #050405;
+        -moz-box-shadow: 2px 2px 0px #050405;
+        box-shadow: 2px 2px 0px #050405;
+    }
+}
+
+/*.mama
+ {
+  width: 60px;
+  height: 60px;
+ }
+
+
+.baby
+ {
+  width: 40px;
+  height: 40px;
+}
+
+.bro
+{
+  width: 50px;
+  height: 50px;
+}
+.sis
+{
+    width: 30px;
+    height: 30px
+}
+.cus
+{
+    width: 55px;
+    height: 55px;
+}*/
