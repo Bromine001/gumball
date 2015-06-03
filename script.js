@@ -1,25 +1,105 @@
 var counter = 0;
 
+$(document).ready(function(){
+scoreUpdate();
+});
+                            //Section of functions for new divs !! NOT CALLED BY USER
 
-function clickMain()
-{ 
+
+function newGran()
+{
     counter += 1;
     $("body").prepend("<div id=" + counter + " class= gran ></div>");
-    var color = getRandomColor();
-    $("#" + counter).css( "background", color);
-    $("#main").hide();
+    more();
+}
+function newPapa()
+{
+    counter += 1;
+    $("body").prepend("<div id=" + counter + " class= papa ></div>");
+    more();
+}
+function newMama()
+{
+    counter += 1;
+    $("body").prepend("<div id=" + counter + " class= papa ></div>");
+    more();
+}
+function newBaby()
+{
+    counter += 1;
+    $("body").prepend("<div id=" + counter + " class= baby ></div>");
+    more();
+}
+function newSis()
+{
+    counter += 1;
+    $("body").prepend("<div id=" + counter + " class= sis ></div>");
+    more();
+}
+function newBro()
+{
+    counter += 1;
+    $("body").prepend("<div id=" + counter + " class= bro ></div>");
+    more();
+}
+function newCus()
+{
+    counter += 1;
+    $("body").prepend("<div id=" + counter + " class= cus ></div>");
+    more();
+}
+
+               //General functions called by functions. not called by user. 
+var more = function()
+{
+       
+        $("#" + counter).css( "background", getRandomColor());
+    
+        var rCount = (Math.floor(Math.random() * 25));
+        if (rCount % 4 == 0) {
+            $("#" + counter).css( "border-style", "dotted");
+        }
+        else if (counter % 5 == 1) {
+            $("#" + counter).css( "border-style", "solid");
+        }
+        else if (counter % 5 == 2) {
+            $("#" + counter).css( "border-style", "dashed");
+        }
+        else if (counter % 5 == 3) {
+            $("#" + counter).css( "border-style", "double");
+        }
+        var width = (Math.floor(Math.random() * 55));
+        $("#" + counter).css( "border-width", width);
+        $("#" + counter).css( "border-color", getRandomColor);
+}
+
+var getRandomColor = function()
+{
+    var letters = '0123456789ABCDEF'.split('');
+    var color = '#';
+    for (var i = 0; i < 6; i++ ) {
+        color += letters[Math.round(Math.random() * 15)];
+    }
+    return color;
+}
+
+var scoreUpdate = function()
+{
+    $("#score").html("Score: " + counter);
 }
 
 
+function clickMain()
+{ 
+    newGran();
+    $("#main").hide();
+    scoreUpdate();
+}
+
 function clickGran()                                                //XXXXXXXXXXXXXX
 {
-    counter += 1;
-    
-    $("body").prepend("<div id=" + counter + " class= papa ></div>");
-    var color = getRandomColor();
-    $("#" + counter).css( "background", color);
-    more();
-    
+    newPapa();
+    scoreUpdate();
     if (counter > 20) {
        clickCus();
     }
@@ -27,32 +107,26 @@ function clickGran()                                                //XXXXXXXXXX
 
 function clickPapa()
 {
-    counter += 1;
-    
-    if (counter > 15) {
-        for (i = 12; i >= 0; i --)
+    if (counter % 15 == 0) {
+        for (i = 4; i >= 0; i --)
         {
-            more();
+            newBro();
         }
     }
     else
     {
-        more();
+        newMama();
     }
     
-    if (counter % 3 == 0) {
-        $("body").prepend("<div id=" + counter + " class= sis></div>");
-        var color = getRandomColor();
-        $("#" + counter).css( "background", color);
+    if (counter % 3 == 0)
+    {
+        newSis();
     }
     else
     {
-    $("body").prepend("<div id=" + counter + " class= mama></div>");
-    var color = getRandomColor();
-    $("#" + counter).css( "background", color);
-    
-    more();
+        newMama();
     }
+    scoreUpdate();
 }
 
 function clickMama()
@@ -60,97 +134,60 @@ function clickMama()
     counter += 1;
     
     if (Math.random() > .7) {
-        clickBro();
-        clickPapa();
-        clickSis();
-        clickGran();
+        newBro();
+        newPapa();
+        newSis();
+        newGran();
         
     }
     else
     {
-        $("body").prepend("<div id=" + counter + " class= baby></div>");
-        var color = getRandomColor();
-        $("#" + counter).css( "background", color);
-        //more();
-        //more();
-        //more();
+        newBaby();
     }
+    scoreUpdate();
 }
 
 
 function clickBro()                                             //XXXXXXXXXXXXXX
 {
-    counter += 1;
     
-    if (Math.random() > .5) {
-    $("body").prepend("<div id=" + counter + " class= sis></div>");
-    var color = getRandomColor();
-    $("#" + counter).css( "background", color);
-    more();
+    if (Math.random() > .5)
+    {
+        newSis();
     }
     else
     {
-        clickCus();
+        newCus();
         for (i = 10; i >= 0; i --)
         {
-            more();
+            newPapa();
         }
     }
+    scoreUpdate();
 }
 function clickSis()
 {
     counter += 1;
     if (counter % 7 == 0)
     {
-        $("body").prepend("<div id=" + counter + " class= cus></div>");
-         var color = getRandomColor();
-        $("#" + counter).css( "background", color);
-        
+        newCus();
     }
     else
     {
-        $("body").prepend("<div id=" + counter + " class= bro></div>");
-        var color = getRandomColor();
-        $("#" + counter).css( "background", color);
-        //more();
-        //more();
-        //more();
-        //more();
+        newBro();
     }
+    scoreUpdate();
 }
+
 var clickBaby = function()
 {
-    clickGran();
-        
-        more();
-
-    clickPapa();
-        $("#" + counter).css( "border", "12px dotted firebrick");
-        more();
-
-
-   more();
+    newGran();
+    newPapa();
+    scoreUpdate();
 }
 
-var more = function()
-{
-        var rCount = (Math.floor(Math.random() * counter));
-        if (rCount % 5 <= 1) {
-            $("#" + rCount).css( "border-style", "dotted");
-        }
-        if (counter % 5 == 2) {
-            $("#" + rCount).css( "border-style", "solid");
-        }
-        if (counter % 5 == 3) {
-            $("#" + rCount).css( "border-style", "dashed");
-        }
-        if (counter % 5 == 4) {
-            $("#" + rCount).css( "border-style", "double");
-        }
-        var width = (Math.floor(Math.random() * 34));
-        $("#" + rCount).css( "border-width", width);
-        $("#" + rCount).css( "border-color", getRandomColor);
-}
+
+ 
 
 function clickCus()
 {
@@ -166,6 +203,9 @@ function clickCus()
         $(".bro").remove();
         $(".sis").remove();
         $("#main").show();
+        //updateScore();
+        alert ("Game over! Your final score was " + counter);
+        counter = 0;
     }
     
     else
@@ -195,26 +235,13 @@ function clickCus()
         }
         else
         {
-            for (i = 25; i >= 0; i --)
-            {
-                more();
-            }
+            clickGran();
         }
-    } 
-}
-
-
-
-
-var getRandomColor = function()
-{
-    var letters = '0123456789ABCDEF'.split('');
-    var color = '#';
-    for (var i = 0; i < 6; i++ ) {
-        color += letters[Math.round(Math.random() * 15)];
     }
-    return color;
+    scoreUpdate();
 }
+
+
 
 
 
